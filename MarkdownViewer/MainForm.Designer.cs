@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuTop = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileCloseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exportHTMLMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,16 +41,16 @@
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cssMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewEditMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this._splitContainer = new System.Windows.Forms.SplitContainer();
             this._edit = new System.Windows.Forms.RichTextBox();
             this._view = new System.Windows.Forms.WebBrowser();
-            this.fileSaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
+            this._splitContainer.Panel1.SuspendLayout();
+            this._splitContainer.Panel2.SuspendLayout();
+            this._splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuTop
@@ -56,10 +58,12 @@
             this.menuTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingToolStripMenuItem,
+            this.viewEditMenuItem,
             this.aboutMenuItem});
             this.menuTop.Location = new System.Drawing.Point(0, 0);
             this.menuTop.Name = "menuTop";
-            this.menuTop.Size = new System.Drawing.Size(519, 24);
+            this.menuTop.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuTop.Size = new System.Drawing.Size(792, 24);
             this.menuTop.TabIndex = 0;
             this.menuTop.Text = "menuTop";
             // 
@@ -80,36 +84,43 @@
             // fileOpenMenuItem
             // 
             this.fileOpenMenuItem.Name = "fileOpenMenuItem";
-            this.fileOpenMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileOpenMenuItem.Size = new System.Drawing.Size(136, 22);
             this.fileOpenMenuItem.Text = "Open";
             this.fileOpenMenuItem.Click += new System.EventHandler(this.fileOpenMenuItem_Click);
+            // 
+            // fileSaveMenuItem
+            // 
+            this.fileSaveMenuItem.Name = "fileSaveMenuItem";
+            this.fileSaveMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.fileSaveMenuItem.Text = "Save";
+            this.fileSaveMenuItem.Click += new System.EventHandler(this.fileSaveMenuItem_Click);
             // 
             // fileCloseMenuItem
             // 
             this.fileCloseMenuItem.Name = "fileCloseMenuItem";
-            this.fileCloseMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileCloseMenuItem.Size = new System.Drawing.Size(136, 22);
             this.fileCloseMenuItem.Text = "Close";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(133, 6);
             // 
             // exportHTMLMenuItem
             // 
             this.exportHTMLMenuItem.Name = "exportHTMLMenuItem";
-            this.exportHTMLMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportHTMLMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exportHTMLMenuItem.Text = "Export HTML";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exitMenuItem.Text = "Exit";
             // 
             // settingToolStripMenuItem
@@ -124,83 +135,93 @@
             // fontMenuItem
             // 
             this.fontMenuItem.Name = "fontMenuItem";
-            this.fontMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fontMenuItem.Size = new System.Drawing.Size(94, 22);
             this.fontMenuItem.Text = "Font";
             // 
             // cssMenuItem
             // 
             this.cssMenuItem.Name = "cssMenuItem";
-            this.cssMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cssMenuItem.Size = new System.Drawing.Size(94, 22);
             this.cssMenuItem.Text = "CSS";
+            // 
+            // viewEditMenuItem
+            // 
+            this.viewEditMenuItem.Name = "viewEditMenuItem";
+            this.viewEditMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.viewEditMenuItem.Text = "View/Edit";
+            this.viewEditMenuItem.Click += new System.EventHandler(this.viewEditMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(47, 20);
             this.aboutMenuItem.Text = "About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
-            // splitContainer1
+            // _splitContainer
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
-            this.splitContainer1.Name = "splitContainer1";
+            this._splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainer.Location = new System.Drawing.Point(0, 24);
+            this._splitContainer.Name = "_splitContainer";
             // 
-            // splitContainer1.Panel1
+            // _splitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this._edit);
+            this._splitContainer.Panel1.Controls.Add(this._edit);
             // 
-            // splitContainer1.Panel2
+            // _splitContainer.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this._view);
-            this.splitContainer1.Size = new System.Drawing.Size(519, 343);
-            this.splitContainer1.SplitterDistance = 217;
-            this.splitContainer1.TabIndex = 1;
+            this._splitContainer.Panel2.Controls.Add(this._view);
+            this._splitContainer.Size = new System.Drawing.Size(792, 549);
+            this._splitContainer.SplitterDistance = 390;
+            this._splitContainer.SplitterWidth = 6;
+            this._splitContainer.TabIndex = 1;
             // 
             // _edit
             // 
+            this._edit.AcceptsTab = true;
+            this._edit.AutoWordSelection = true;
             this._edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._edit.BulletIndent = 4;
             this._edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this._edit.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._edit.Location = new System.Drawing.Point(0, 0);
             this._edit.Name = "_edit";
             this._edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this._edit.Size = new System.Drawing.Size(217, 343);
+            this._edit.Size = new System.Drawing.Size(390, 549);
             this._edit.TabIndex = 0;
             this._edit.Text = "";
             this._edit.TextChanged += new System.EventHandler(this._edit_TextChanged);
             // 
             // _view
             // 
+            this._view.AllowWebBrowserDrop = false;
             this._view.Dock = System.Windows.Forms.DockStyle.Fill;
             this._view.Location = new System.Drawing.Point(0, 0);
-            this._view.MinimumSize = new System.Drawing.Size(20, 20);
+            this._view.MinimumSize = new System.Drawing.Size(26, 26);
             this._view.Name = "_view";
-            this._view.Size = new System.Drawing.Size(298, 343);
+            this._view.Size = new System.Drawing.Size(396, 549);
             this._view.TabIndex = 0;
-            // 
-            // fileSaveMenuItem
-            // 
-            this.fileSaveMenuItem.Name = "fileSaveMenuItem";
-            this.fileSaveMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fileSaveMenuItem.Text = "Save";
-            this.fileSaveMenuItem.Click += new System.EventHandler(this.fileSaveMenuItem_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 367);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(792, 573);
+            this.Controls.Add(this._splitContainer);
             this.Controls.Add(this.menuTop);
+            this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuTop;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MarkdownViewer";
+            this.DoubleClick += new System.EventHandler(this.MainForm_DoubleClick);
             this.menuTop.ResumeLayout(false);
             this.menuTop.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this._splitContainer.Panel1.ResumeLayout(false);
+            this._splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
+            this._splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,10 +241,11 @@
         private System.Windows.Forms.ToolStripMenuItem fontMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cssMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.RichTextBox _edit;
+        private System.Windows.Forms.SplitContainer _splitContainer;
         private System.Windows.Forms.WebBrowser _view;
         private System.Windows.Forms.ToolStripMenuItem fileSaveMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewEditMenuItem;
+        private System.Windows.Forms.RichTextBox _edit;
     }
 }
 

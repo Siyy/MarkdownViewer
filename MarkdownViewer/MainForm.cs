@@ -20,9 +20,6 @@ namespace MarkdownViewer
         public MainForm(string file)
         {
             InitializeComponent();
-            this.Width = 800;
-            this.Height = 600;
-            this.CenterToScreen();
             if(file != null)
                 openFile(file);
         }
@@ -63,11 +60,8 @@ namespace MarkdownViewer
         {
             string html = _md.Transform(content);
             html = string.Format(HTML_TMPL, getCss(), html);
-            _view.Stop();
-
-            _view.Document.OpenNew(false).Write(html);
-
-            //_view.Document.Write(html);
+            //_view.Stop();
+            _view.DocumentText = html;
         }
         private void resetAll(string content)
         {
@@ -127,7 +121,8 @@ namespace MarkdownViewer
                     return;
                 file = dlg.FileName;
             }
-            saveFile(file, _edit.Text);
+            string content = _edit.Text.Replace("\n", "\r\n");
+            saveFile(file, content);
         }
 
         private void _edit_TextChanged(object sender, EventArgs e)
@@ -138,6 +133,23 @@ namespace MarkdownViewer
             setChanged();
         }
 
+        private void MainForm_DoubleClick(object sender, EventArgs e)
+        {
+        }
+        private void showOrHideEdit()
+        {
+            _splitContainer.Panel1Collapsed = !_splitContainer.Panel1Collapsed;
+        }
+
+        private void viewEditMenuItem_Click(object sender, EventArgs e)
+        {
+            showOrHideEdit();
+        }
+        private string STR_ABOUT = "#MarkdownViewer v0.1\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            resetView(STR_ABOUT);
+        }
 
     }
 }
