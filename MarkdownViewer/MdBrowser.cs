@@ -16,6 +16,8 @@ namespace MarkdownViewer
             }
             set
             {
+                if (value == null)
+                    return;
                 _mdText = value;
                 resetView(_mdText);
             }

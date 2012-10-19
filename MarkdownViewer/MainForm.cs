@@ -19,8 +19,28 @@ namespace MarkdownViewer
         public MainForm(string file)
         {
             InitializeComponent();
+            init();
             if(file != null)
                 openFile(file);
+        }
+        private void init(){
+            //init tab len
+            int w = 26;
+            int[] tabs = new int[10];
+            for (int i = 0; i < tabs.Length; i++)
+                tabs[i] = w * (i + 1);
+            _edit.SelectionTabs = tabs;
+        }
+        private void newFile()
+        {
+            if (!checkCanCloseFile())
+            {
+                return;
+            }
+            _currFile = null;
+            _edit.Text = "";
+            resetView("");
+            setChanged(false);
         }
 
         private bool _loading = false;
@@ -35,12 +55,11 @@ namespace MarkdownViewer
             resetAll(content);
             _loading = false;
 
-            _changed = false;
-            refreshTitle();
+            setChanged(false);
         }
-        private void setChanged()
+        private void setChanged(bool changed = true)
         {
-            _changed = true;
+            _changed = changed;
             refreshTitle();
         }
         private void refreshTitle()
@@ -156,7 +175,7 @@ namespace MarkdownViewer
         {
             showOrHideEdit();
         }
-        private string STR_ABOUT = "#MarkdownViewer v0.1\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
+        private string STR_ABOUT = "#MarkdownViewer v0.2\nProject:<https://github.com/jijinggang/MarkdownViewer>\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
             resetView(STR_ABOUT);
@@ -174,6 +193,11 @@ namespace MarkdownViewer
         private void _view_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             //  this.Text = e.Url.ToString();
+        }
+
+        private void fileNewMenuItem_Click(object sender, EventArgs e)
+        {
+            newFile();
         }
 
     }
