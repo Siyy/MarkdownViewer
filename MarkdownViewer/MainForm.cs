@@ -19,11 +19,11 @@ namespace MarkdownViewer
         public MainForm(string file)
         {
             InitializeComponent();
-            init();
-            if(file != null)
+            initTabLen();
+            if (file != null)
                 openFile(file);
         }
-        private void init(){
+        private void initTabLen(){
             //init tab len
             int w = 26;
             int[] tabs = new int[10];
@@ -100,12 +100,11 @@ namespace MarkdownViewer
         private void saveFile(string file, string content)
         {
             File.WriteAllText(file, content);
-            _changed = false;
             if (_currFile != file)
             {
                 _currFile = file;
             }
-            this.refreshTitle();
+            setChanged(false);
         }
 
         //check changed file
@@ -158,8 +157,14 @@ namespace MarkdownViewer
             saveCurrFile();
         }
 
+        private bool _firstChanged = true; //system invoke
         private void _edit_TextChanged(object sender, EventArgs e)
         {
+            if (_firstChanged)
+            {
+                _firstChanged = false;
+                return;
+            }
             if (_loading)
                 return;
             resetView(_edit.Text);
