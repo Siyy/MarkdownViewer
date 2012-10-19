@@ -14,7 +14,6 @@ namespace MarkdownViewer
     {
         private string _currFile = null;
         private bool _changed = false;
-        private MarkdownSharp.Markdown _md = new MarkdownSharp.Markdown();
         public const string TITLE = "MarkdownViewer";
 
         public MainForm(string file)
@@ -27,6 +26,8 @@ namespace MarkdownViewer
         private bool _loading = false;
         private void openFile(string file)
         {
+            if (!checkCanCloseFile())
+                return;
             _currFile = file;
             string content = File.ReadAllText(file);
             
@@ -55,28 +56,21 @@ namespace MarkdownViewer
             _edit.Text = content;
         }
 
-        private const string HTML_TMPL = "<html><head><style type=\"text/css\">{0}</style></head><body>{1}</body></html>";
+        private string _strCss = null;
         private void resetView(string content)
         {
-            string html = _md.Transform(content);
-            html = string.Format(HTML_TMPL, getCss(), html);
-            //_view.Stop();
-            _view.DocumentText = html;
+            if (null == _strCss)
+            {
+                _strCss = File.ReadAllText(getExePath() + "\\default.css");
+                _view.CssText = _strCss;
+            }
+
+            _view.MdText = content;
         }
         private void resetAll(string content)
         {
             resetEdit(content);
             resetView(content);
-        }
-
-        private string _strCss = null;
-        private string getCss()
-        {
-            if (null == _strCss)
-            {
-                _strCss = File.ReadAllText(getExePath() + "\\default.css");
-            }
-            return _strCss;
         }
 
         private string getExePath()
@@ -91,13 +85,29 @@ namespace MarkdownViewer
             if (_currFile != file)
             {
                 _currFile = file;
-                this.refreshTitle();
             }
+            this.refreshTitle();
         }
-        private const string EXT_FILTER = "Markdown files|*.md;*.mkd;*.markdown";
 
+        //check changed file
+        private bool checkCanCloseFile()
+        {
+            if (_changed)
+            {
+                DialogResult dr = MessageBox.Show("File changed,do you save it?", "Save File", MessageBoxButtons.YesNoCancel);
+                if (dr == DialogResult.Yes)
+                {
+                    saveCurrFile();
+                }
+                else if (dr == DialogResult.Cancel)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
-
+        private const string EXT_FILTER = "Markdown files|*.md";
         private void fileOpenMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog() ;
@@ -109,7 +119,7 @@ namespace MarkdownViewer
                 openFile(file);
             }
         }
-        private void fileSaveMenuItem_Click(object sender, EventArgs e)
+        private void saveCurrFile()
         {
             string file = _currFile;
             if (!File.Exists(_currFile))
@@ -124,6 +134,10 @@ namespace MarkdownViewer
             string content = _edit.Text.Replace("\n", "\r\n");
             saveFile(file, content);
         }
+        private void fileSaveMenuItem_Click(object sender, EventArgs e)
+        {
+            saveCurrFile();
+        }
 
         private void _edit_TextChanged(object sender, EventArgs e)
         {
@@ -133,9 +147,6 @@ namespace MarkdownViewer
             setChanged();
         }
 
-        private void MainForm_DoubleClick(object sender, EventArgs e)
-        {
-        }
         private void showOrHideEdit()
         {
             _splitContainer.Panel1Collapsed = !_splitContainer.Panel1Collapsed;
@@ -149,6 +160,20 @@ namespace MarkdownViewer
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
             resetView(STR_ABOUT);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!checkCanCloseFile())
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void _view_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            //  this.Text = e.Url.ToString();
         }
 
     }

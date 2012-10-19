@@ -45,7 +45,7 @@
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._splitContainer = new System.Windows.Forms.SplitContainer();
             this._edit = new System.Windows.Forms.RichTextBox();
-            this._view = new System.Windows.Forms.WebBrowser();
+            this._view = new MarkdownViewer.MdBrowser();
             this.menuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
@@ -195,12 +195,14 @@
             // _view
             // 
             this._view.AllowWebBrowserDrop = false;
+            this._view.CssText = null;
             this._view.Dock = System.Windows.Forms.DockStyle.Fill;
             this._view.Location = new System.Drawing.Point(0, 0);
             this._view.MinimumSize = new System.Drawing.Size(26, 26);
             this._view.Name = "_view";
             this._view.Size = new System.Drawing.Size(396, 549);
             this._view.TabIndex = 0;
+            this._view.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this._view_Navigating);
             // 
             // MainForm
             // 
@@ -215,7 +217,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MarkdownViewer";
-            this.DoubleClick += new System.EventHandler(this.MainForm_DoubleClick);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuTop.ResumeLayout(false);
             this.menuTop.PerformLayout();
             this._splitContainer.Panel1.ResumeLayout(false);
@@ -242,7 +244,8 @@
         private System.Windows.Forms.ToolStripMenuItem cssMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.SplitContainer _splitContainer;
-        private System.Windows.Forms.WebBrowser _view;
+        //private System.Windows.Forms.WebBrowser _view;
+        private MdBrowser _view;
         private System.Windows.Forms.ToolStripMenuItem fileSaveMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewEditMenuItem;
         private System.Windows.Forms.RichTextBox _edit;
