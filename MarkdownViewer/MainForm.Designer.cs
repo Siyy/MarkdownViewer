@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuTop = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileNewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileOpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSaveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -44,7 +45,6 @@
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._splitContainer = new System.Windows.Forms.SplitContainer();
             this._edit = new System.Windows.Forms.RichTextBox();
-            this.fileNewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._view = new MarkdownViewer.MdBrowser();
             this.menuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
@@ -81,11 +81,19 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // fileNewMenuItem
+            // 
+            this.fileNewMenuItem.Name = "fileNewMenuItem";
+            this.fileNewMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.fileNewMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.fileNewMenuItem.Text = "&New";
+            this.fileNewMenuItem.Click += new System.EventHandler(this.fileNewMenuItem_Click);
+            // 
             // fileOpenMenuItem
             // 
             this.fileOpenMenuItem.Name = "fileOpenMenuItem";
             this.fileOpenMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.fileOpenMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileOpenMenuItem.Size = new System.Drawing.Size(136, 22);
             this.fileOpenMenuItem.Text = "&Open";
             this.fileOpenMenuItem.Click += new System.EventHandler(this.fileOpenMenuItem_Click);
             // 
@@ -93,30 +101,30 @@
             // 
             this.fileSaveMenuItem.Name = "fileSaveMenuItem";
             this.fileSaveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.fileSaveMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fileSaveMenuItem.Size = new System.Drawing.Size(136, 22);
             this.fileSaveMenuItem.Text = "&Save";
             this.fileSaveMenuItem.Click += new System.EventHandler(this.fileSaveMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(133, 6);
             // 
             // exportHTMLMenuItem
             // 
             this.exportHTMLMenuItem.Name = "exportHTMLMenuItem";
-            this.exportHTMLMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportHTMLMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exportHTMLMenuItem.Text = "Export &HTML";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exitMenuItem.Text = "Exit";
             // 
             // settingToolStripMenuItem
@@ -187,14 +195,6 @@
             this._edit.TabIndex = 0;
             this._edit.Text = "";
             this._edit.TextChanged += new System.EventHandler(this._edit_TextChanged);
-            // 
-            // fileNewMenuItem
-            // 
-            this.fileNewMenuItem.Name = "fileNewMenuItem";
-            this.fileNewMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.fileNewMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fileNewMenuItem.Text = "&New";
-            this.fileNewMenuItem.Click += new System.EventHandler(this.fileNewMenuItem_Click);
             // 
             // _view
             // 

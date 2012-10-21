@@ -12,7 +12,7 @@ namespace MarkdownViewer
 {
     public partial class MainForm : Form
     {
-        private string _currFile = null;
+        private string _file = null;
         private bool _changed = false;
         public const string TITLE = "MarkdownViewer";
 
@@ -23,7 +23,8 @@ namespace MarkdownViewer
             if (file != null)
                 openFile(file);
         }
-        private void initTabLen(){
+        private void initTabLen()
+        {
             //init tab len
             int w = 26;
             int[] tabs = new int[10];
@@ -37,7 +38,7 @@ namespace MarkdownViewer
             {
                 return;
             }
-            _currFile = null;
+            _file = null;
             _edit.Text = "";
             resetView("");
             setChanged(false);
@@ -48,7 +49,7 @@ namespace MarkdownViewer
         {
             if (!checkCanCloseFile())
                 return;
-            _currFile = file;
+            _file = file;
             string content = File.ReadAllText(file);
             
             _loading = true;
@@ -64,7 +65,7 @@ namespace MarkdownViewer
         }
         private void refreshTitle()
         {
-            string title = TITLE + " - " + _currFile;
+            string title = TITLE + " - " + _file;
             if (_changed)
                 title += "*";
             this.Text = title;
@@ -100,9 +101,9 @@ namespace MarkdownViewer
         private void saveFile(string file, string content)
         {
             File.WriteAllText(file, content);
-            if (_currFile != file)
+            if (_file != file)
             {
-                _currFile = file;
+                _file = file;
             }
             setChanged(false);
         }
@@ -139,8 +140,8 @@ namespace MarkdownViewer
         }
         private void saveCurrFile()
         {
-            string file = _currFile;
-            if (!File.Exists(_currFile))
+            string file = _file;
+            if (!File.Exists(_file))
             {
                 SaveFileDialog dlg = new SaveFileDialog();
                 dlg.AddExtension = true;
@@ -204,6 +205,5 @@ namespace MarkdownViewer
         {
             newFile();
         }
-
     }
 }
