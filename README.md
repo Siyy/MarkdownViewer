@@ -1,7 +1,7 @@
 MarkdownViewer
 ==============
 
-A light markdown viewer &amp; editor for windows
+A lightweight markdown viewer &amp; editor for windows
 
 It's similar with MarkdownPad, but faster to start and easier to view file 
 
