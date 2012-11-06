@@ -19,14 +19,15 @@ namespace MarkdownViewer
         public MainForm(string file)
         {
             InitializeComponent();
-            initTabLen();
+            initEdit();
             if (file != null)
                 openFile(file);
         }
-        private void initTabLen()
+        private void initEdit()
         {
+            _edit.LanguageOption = RichTextBoxLanguageOptions.UIFonts | RichTextBoxLanguageOptions.DualFont;
             //init tab len
-            int w = 26;
+            int w = 28;//(int)_edit.Font.Size * 4;
             int[] tabs = new int[10];
             for (int i = 0; i < tabs.Length; i++)
                 tabs[i] = w * (i + 1);

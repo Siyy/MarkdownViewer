@@ -38,9 +38,6 @@
             this.exportHTMLMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fontMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cssMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEditMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._splitContainer = new System.Windows.Forms.SplitContainer();
@@ -57,7 +54,6 @@
             // 
             this.menuTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.settingToolStripMenuItem,
             this.viewEditMenuItem,
             this.aboutMenuItem});
             this.menuTop.Location = new System.Drawing.Point(0, 0);
@@ -127,27 +123,6 @@
             this.exitMenuItem.Size = new System.Drawing.Size(136, 22);
             this.exitMenuItem.Text = "Exit";
             // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fontMenuItem,
-            this.cssMenuItem});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.settingToolStripMenuItem.Text = "Setting";
-            // 
-            // fontMenuItem
-            // 
-            this.fontMenuItem.Name = "fontMenuItem";
-            this.fontMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.fontMenuItem.Text = "Font";
-            // 
-            // cssMenuItem
-            // 
-            this.cssMenuItem.Name = "cssMenuItem";
-            this.cssMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.cssMenuItem.Text = "CSS";
-            // 
             // viewEditMenuItem
             // 
             this.viewEditMenuItem.Name = "viewEditMenuItem";
@@ -187,7 +162,7 @@
             this._edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._edit.BulletIndent = 4;
             this._edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._edit.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this._edit.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._edit.Location = new System.Drawing.Point(0, 0);
             this._edit.Name = "_edit";
             this._edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
@@ -243,9 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem exportHTMLMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fontMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cssMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
         private System.Windows.Forms.SplitContainer _splitContainer;
         //private System.Windows.Forms.WebBrowser _view;
