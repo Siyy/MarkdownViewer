@@ -64,9 +64,11 @@ h6 {
   color: #777777;
   font-size: 14px; }
 
-p, blockquote, ul, ol, dl, table, pre {
+p, blockquote, ol, dl, table, pre {
   margin: 15px 0; }
-
+ul{
+  margin:0;
+}
 hr {
   background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
   border: 0 none;
