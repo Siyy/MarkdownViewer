@@ -10,4 +10,5 @@ It's similar with MarkdownPad, but faster to start and easier to view file
 
 ##Download
 Download from this url,then unzip it.
-    <https://github.com/downloads/jijinggang/MarkdownViewer/markdownviewer.zip>
+
+<https://github.com/jijinggang/MarkdownViewer/blob/master/MarkdownViewer/download/markdownviewer.zip?raw=true>
