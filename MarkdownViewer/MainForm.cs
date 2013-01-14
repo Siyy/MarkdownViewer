@@ -82,7 +82,7 @@ namespace MarkdownViewer
         {
             if (null == _strCss)
             {
-                _strCss = File.ReadAllText(getExePath() + "\\default.css");
+                _strCss = File.ReadAllText(Util.GetExePath() + "\\default.css");
                 _view.CssText = _strCss;
             }
 
@@ -92,11 +92,6 @@ namespace MarkdownViewer
         {
             resetEdit(content);
             resetView(content);
-        }
-
-        private string getExePath()
-        {
-            return System.Windows.Forms.Application.StartupPath;
         }
 
         private void saveFile(string file, string content)
@@ -127,7 +122,7 @@ namespace MarkdownViewer
             return true;
         }
 
-        private const string EXT_FILTER = "Markdown files|*.md";
+        private const string EXT_FILTER = "Markdown files|*.md;*.mkd;*.markdown";
         private void fileOpenMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog() ;
@@ -182,7 +177,7 @@ namespace MarkdownViewer
         {
             showOrHideEdit();
         }
-        private string STR_ABOUT = "#MarkdownViewer v0.2\nProject:<https://github.com/jijinggang/MarkdownViewer>\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
+        private string STR_ABOUT = "#MarkdownViewer v1.0\nProject:<https://github.com/jijinggang/MarkdownViewer>\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
             resetView(STR_ABOUT);

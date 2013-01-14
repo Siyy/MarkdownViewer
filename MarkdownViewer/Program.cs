@@ -16,9 +16,38 @@ namespace MarkdownViewer
             string file = null;
             if (args.Length > 0)
                 file = args[0];
+            if (!checkDefaultProgram(file))
+                return;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm(file));
+        }
+        private static bool checkDefaultProgram(string param)
+        {
+            const string STR_PARAM = "/setreg";
+            if (!RegDoc.IsDefaultProgram())
+            {
+                if (param == STR_PARAM)
+                {
+                    try
+                    {
+                        RegDoc.RegMe(Util.GetExeFile());
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    return false;
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("MarkdownViewer isn't default editor for markdown files, do you set it?", "MarkdownViewer", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                    {
+                        Util.RunAsAdmin(Util.GetExeFile(), STR_PARAM);
+                    }
+                }
+            }
+            return true;
         }
     }
 }
