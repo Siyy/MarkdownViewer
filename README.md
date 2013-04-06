@@ -1,3 +1,5 @@
+I had developed a better markdown editor <https://github.com/jijinggang/MarkdownEditor>, plz use it.
+
 MarkdownViewer
 ==============
 
