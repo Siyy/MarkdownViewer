@@ -44,7 +44,7 @@
             this._edit = new System.Windows.Forms.RichTextBox();
             this._view = new MarkdownViewer.MdBrowser();
             this.menuTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
+			//((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
@@ -202,7 +202,7 @@
             this.menuTop.PerformLayout();
             this._splitContainer.Panel1.ResumeLayout(false);
             this._splitContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
+			//((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
