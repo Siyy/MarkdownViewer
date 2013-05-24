@@ -178,10 +178,10 @@ namespace MarkdownViewer
             showOrHideEdit();
         }
         private string STR_ABOUT = "#MarkdownViewer v1.0\nProject:<https://github.com/jijinggang/MarkdownViewer>\n##Author\njijinggang@gmail.com\n##Copyright\nFree For All";
-        private void aboutMenuItem_Click(object sender, EventArgs e)
-        {
-            resetView(STR_ABOUT);
-        }
+		private void aboutMenuItem_Click(object sender, EventArgs e)
+		{
+			resetView(STR_ABOUT);
+		}
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -201,5 +201,10 @@ namespace MarkdownViewer
         {
             newFile();
         }
+
+		private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			new AboutBoxMarkdownViewerBox().ShowDialog();
+		}
     }
 }

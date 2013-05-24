@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBoxMarkdownViewerBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxMarkdownViewerBox.Designer.cs">
+      <DependentUpon>AboutBoxMarkdownViewerBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <Compile Include="RegDoc.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="AboutBoxMarkdownViewerBox.resx">
+      <DependentUpon>AboutBoxMarkdownViewerBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

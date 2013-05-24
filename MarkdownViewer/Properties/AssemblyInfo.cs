@@ -6,11 +6,13 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("MarkdownViewer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("#MarkdownViewer v1.0\nProject:<https://github.com/Siyy/MarkdownViewer>\n##Author\nSiyy.Net\n##Copyright\nFree For All")
+
+]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("MarkdownViewer")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
