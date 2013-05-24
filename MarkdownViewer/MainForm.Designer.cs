@@ -136,6 +136,7 @@
 			this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
 			this.NewToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.NewToolStripMenuItem.Text = "新建(&N)";
+			this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
 			// 
 			// OpenToolStripMenuItem
 			// 
@@ -144,6 +145,7 @@
 			this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
 			this.OpenToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.OpenToolStripMenuItem.Text = "打开(&O)";
+			this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator4
 			// 
@@ -157,12 +159,15 @@
 			this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
 			this.SaveToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.SaveToolStripMenuItem.Text = "保存(&S)";
+			this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
 			// 
 			// SaveAsToolStripMenuItem
 			// 
 			this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
 			this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.SaveAsToolStripMenuItem.Text = "另存为(&A)";
+			this.SaveAsToolStripMenuItem.Visible = false;
+			this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator5
 			// 
@@ -199,6 +204,7 @@
 			this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
 			this.ExitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
 			this.ExitToolStripMenuItem.Text = "退出(&X)";
+			this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
 			// fileToolStripMenuItem
 			// 
@@ -213,6 +219,7 @@
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
 			this.fileToolStripMenuItem.Text = "&File";
+			this.fileToolStripMenuItem.Visible = false;
 			// 
 			// fileNewMenuItem
 			// 
@@ -248,6 +255,7 @@
 			this.exportHTMLMenuItem.Name = "exportHTMLMenuItem";
 			this.exportHTMLMenuItem.Size = new System.Drawing.Size(155, 22);
 			this.exportHTMLMenuItem.Text = "Export &HTML";
+			this.exportHTMLMenuItem.Click += new System.EventHandler(this.exportHTMLMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
@@ -265,6 +273,7 @@
 			this.viewEditMenuItem.Name = "viewEditMenuItem";
 			this.viewEditMenuItem.Size = new System.Drawing.Size(74, 21);
 			this.viewEditMenuItem.Text = "&View/Edit";
+			this.viewEditMenuItem.Visible = false;
 			this.viewEditMenuItem.Click += new System.EventHandler(this.viewEditMenuItem_Click);
 			// 
 			// 帮助HToolStripMenuItem
@@ -282,34 +291,34 @@
 			// 内容CToolStripMenuItem
 			// 
 			this.内容CToolStripMenuItem.Name = "内容CToolStripMenuItem";
-			this.内容CToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.内容CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.内容CToolStripMenuItem.Text = "内容(&C)";
 			this.内容CToolStripMenuItem.Visible = false;
 			// 
 			// 索引IToolStripMenuItem
 			// 
 			this.索引IToolStripMenuItem.Name = "索引IToolStripMenuItem";
-			this.索引IToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.索引IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.索引IToolStripMenuItem.Text = "索引(&I)";
 			this.索引IToolStripMenuItem.Visible = false;
 			// 
 			// 搜索SToolStripMenuItem
 			// 
 			this.搜索SToolStripMenuItem.Name = "搜索SToolStripMenuItem";
-			this.搜索SToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.搜索SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.搜索SToolStripMenuItem.Text = "搜索(&S)";
 			this.搜索SToolStripMenuItem.Visible = false;
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(122, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(149, 6);
 			this.toolStripSeparator9.Visible = false;
 			// 
 			// AboutToolStripMenuItem
 			// 
 			this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-			this.AboutToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+			this.AboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.AboutToolStripMenuItem.Text = "关于(&A)...";
 			this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
 			// 
@@ -318,6 +327,7 @@
 			this.aboutMenuItem.Name = "aboutMenuItem";
 			this.aboutMenuItem.Size = new System.Drawing.Size(55, 21);
 			this.aboutMenuItem.Text = "&About";
+			this.aboutMenuItem.Visible = false;
 			// 
 			// 编辑EToolStripMenuItem
 			// 
@@ -413,13 +423,13 @@
 			// 自定义CToolStripMenuItem
 			// 
 			this.自定义CToolStripMenuItem.Name = "自定义CToolStripMenuItem";
-			this.自定义CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.自定义CToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
 			this.自定义CToolStripMenuItem.Text = "自定义(&C)";
 			// 
 			// 选项OToolStripMenuItem
 			// 
 			this.选项OToolStripMenuItem.Name = "选项OToolStripMenuItem";
-			this.选项OToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.选项OToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
 			this.选项OToolStripMenuItem.Text = "选项(&O)";
 			// 
 			// _splitContainer
@@ -484,6 +494,7 @@
 			this.NewToolStripButton.Name = "NewToolStripButton";
 			this.NewToolStripButton.Size = new System.Drawing.Size(23, 22);
 			this.NewToolStripButton.Text = "新建(&N)";
+			this.NewToolStripButton.Click += new System.EventHandler(this.NewToolStripButton_Click);
 			// 
 			// OpenToolStripButton
 			// 
@@ -493,6 +504,7 @@
 			this.OpenToolStripButton.Name = "OpenToolStripButton";
 			this.OpenToolStripButton.Size = new System.Drawing.Size(23, 22);
 			this.OpenToolStripButton.Text = "打开(&O)";
+			this.OpenToolStripButton.Click += new System.EventHandler(this.OpenToolStripButton_Click);
 			// 
 			// SaveToolStripButton
 			// 
@@ -502,6 +514,7 @@
 			this.SaveToolStripButton.Name = "SaveToolStripButton";
 			this.SaveToolStripButton.Size = new System.Drawing.Size(23, 22);
 			this.SaveToolStripButton.Text = "保存(&S)";
+			this.SaveToolStripButton.Click += new System.EventHandler(this.SaveToolStripButton_Click);
 			// 
 			// 打印PToolStripButton
 			// 

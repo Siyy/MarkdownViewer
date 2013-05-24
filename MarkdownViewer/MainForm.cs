@@ -125,30 +125,40 @@ namespace MarkdownViewer
         private const string EXT_FILTER = "Markdown files|*.md;*.mkd;*.markdown";
         private void fileOpenMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog() ;
-            dlg.CheckFileExists = true;
-            dlg.Filter = EXT_FILTER;
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                String file = dlg.FileName;
-                openFile(file);
-            }
+			File_Open();
         }
+
+		private void File_Open()
+		{
+			OpenFileDialog dlg = new OpenFileDialog();
+			dlg.CheckFileExists = true;
+			dlg.Filter = EXT_FILTER;
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				String file = dlg.FileName;
+				openFile(file);
+			}
+		}
         private void saveCurrFile()
         {
-            string file = _file;
-            if (!File.Exists(_file))
-            {
-                SaveFileDialog dlg = new SaveFileDialog();
-                dlg.AddExtension = true;
-                dlg.Filter = EXT_FILTER;
-                if (dlg.ShowDialog() != DialogResult.OK)
-                    return;
-                file = dlg.FileName;
-            }
-            string content = _edit.Text.Replace("\n", "\r\n");
-            saveFile(file, content);
+			File_Save();
         }
+
+		private void File_Save()
+		{
+			string file = _file;
+			if (!File.Exists(_file))
+			{
+				SaveFileDialog dlg = new SaveFileDialog();
+				dlg.AddExtension = true;
+				dlg.Filter = EXT_FILTER;
+				if (dlg.ShowDialog() != DialogResult.OK)
+					return;
+				file = dlg.FileName;
+			}
+			string content = _edit.Text.Replace("\n", "\r\n");
+			saveFile(file, content);
+		}
         private void fileSaveMenuItem_Click(object sender, EventArgs e)
         {
             saveCurrFile();
@@ -210,6 +220,51 @@ namespace MarkdownViewer
 		private void ViewToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			showOrHideEdit();
+		}
+
+		private void NewToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			newFile();
+		}
+
+		private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			File_Open();
+		}
+
+		private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			File_Save();
+		}
+
+		private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void NewToolStripButton_Click(object sender, EventArgs e)
+		{
+			newFile();
+		}
+
+		private void OpenToolStripButton_Click(object sender, EventArgs e)
+		{
+			File_Open();
+		}
+
+		private void SaveToolStripButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void exportHTMLMenuItem_Click(object sender, EventArgs e)
+		{
+
 		}
     }
 }
