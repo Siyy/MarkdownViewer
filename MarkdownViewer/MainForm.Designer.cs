@@ -589,6 +589,7 @@
 			this.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem";
 			this.ViewToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
 			this.ViewToolStripMenuItem.Text = "预览(&V)";
+			this.ViewToolStripMenuItem.Click += new System.EventHandler(this.ViewToolStripMenuItem_Click);
 			// 
 			// _view
 			// 

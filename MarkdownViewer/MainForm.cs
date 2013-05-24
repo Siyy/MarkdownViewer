@@ -206,5 +206,10 @@ namespace MarkdownViewer
 		{
 			new AboutBoxMarkdownViewerBox().ShowDialog();
 		}
+
+		private void ViewToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			showOrHideEdit();
+		}
     }
 }

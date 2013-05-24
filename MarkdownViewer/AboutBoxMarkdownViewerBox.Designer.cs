@@ -29,13 +29,13 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBoxMarkdownViewerBox));
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.descriptionBox = new MarkdownViewer.MdBrowser();
 			this.logoPictureBox = new System.Windows.Forms.PictureBox();
 			this.labelProductName = new System.Windows.Forms.Label();
 			this.labelVersion = new System.Windows.Forms.Label();
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.labelCompanyName = new System.Windows.Forms.Label();
 			this.okButton = new System.Windows.Forms.Button();
-			this.descriptionBox = new MarkdownViewer.MdBrowser();
 			this.tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.SuspendLayout();
@@ -64,6 +64,19 @@
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel.Size = new System.Drawing.Size(766, 546);
 			this.tableLayoutPanel.TabIndex = 0;
+			// 
+			// descriptionBox
+			// 
+			this.descriptionBox.AllowWebBrowserDrop = false;
+			this.descriptionBox.CssText = null;
+			this.descriptionBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.descriptionBox.Location = new System.Drawing.Point(253, 83);
+			this.descriptionBox.MdText = null;
+			this.descriptionBox.MinimumSize = new System.Drawing.Size(26, 26);
+			this.descriptionBox.Name = "descriptionBox";
+			this.descriptionBox.ScrollBarsEnabled = false;
+			this.descriptionBox.Size = new System.Drawing.Size(510, 430);
+			this.descriptionBox.TabIndex = 25;
 			// 
 			// logoPictureBox
 			// 
@@ -134,18 +147,6 @@
 			this.okButton.Size = new System.Drawing.Size(75, 21);
 			this.okButton.TabIndex = 24;
 			this.okButton.Text = "确定(&O)";
-			// 
-			// descriptionBox
-			// 
-			this.descriptionBox.AllowWebBrowserDrop = false;
-			this.descriptionBox.CssText = null;
-			this.descriptionBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.descriptionBox.Location = new System.Drawing.Point(253, 83);
-			this.descriptionBox.MdText = null;
-			this.descriptionBox.MinimumSize = new System.Drawing.Size(26, 26);
-			this.descriptionBox.Name = "descriptionBox";
-			this.descriptionBox.Size = new System.Drawing.Size(510, 430);
-			this.descriptionBox.TabIndex = 25;
 			// 
 			// AboutBoxMarkdownViewerBox
 			// 
